@@ -16,7 +16,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Emailer());
         }
     }
 }

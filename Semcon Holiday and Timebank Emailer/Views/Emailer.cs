@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Semcon_Holiday_and_Timebank_Emailer
 {
-    public partial class Form1 : Form
+    public partial class Emailer : Form
     {
-        public Form1()
+        public Emailer()
         {
             InitializeComponent();
         }
