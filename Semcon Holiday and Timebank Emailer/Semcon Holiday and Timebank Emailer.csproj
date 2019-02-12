@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\EmailDataAccess.cs" />
+    <Compile Include="DataAccess\EmployeeDataAccess.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="Views\Emailer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
