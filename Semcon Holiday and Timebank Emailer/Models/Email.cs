@@ -10,6 +10,8 @@ namespace Semcon_Holiday_and_Timebank_Emailer.Models
     {
         public String From { get; set; }
         public String To { get; set; }
+        public String FromName { get; set; }
+        public String ToName { get; set; }
         public String Subject { get; set; }
         public String Body { get; set; }
     }
