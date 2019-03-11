@@ -44,7 +44,7 @@
             // tbxEmail
             // 
             this.tbxEmail.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(357, 97);
+            this.tbxEmail.Location = new System.Drawing.Point(357, 161);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(275, 23);
             this.tbxEmail.TabIndex = 0;
@@ -52,7 +52,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(357, 149);
+            this.tbxName.Location = new System.Drawing.Point(357, 213);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(275, 23);
             this.tbxName.TabIndex = 1;
@@ -60,7 +60,7 @@
             // tbxDesignation
             // 
             this.tbxDesignation.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDesignation.Location = new System.Drawing.Point(357, 201);
+            this.tbxDesignation.Location = new System.Drawing.Point(357, 265);
             this.tbxDesignation.Name = "tbxDesignation";
             this.tbxDesignation.Size = new System.Drawing.Size(275, 23);
             this.tbxDesignation.TabIndex = 2;
@@ -68,7 +68,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(215, 97);
+            this.label1.Location = new System.Drawing.Point(215, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 4;
@@ -78,7 +78,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(215, 149);
+            this.label2.Location = new System.Drawing.Point(215, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 23);
             this.label2.TabIndex = 5;
@@ -88,7 +88,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(215, 201);
+            this.label3.Location = new System.Drawing.Point(215, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 23);
             this.label3.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(499, 259);
+            this.button1.Location = new System.Drawing.Point(499, 323);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 29);
             this.button1.TabIndex = 7;
@@ -117,6 +117,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
@@ -128,6 +129,7 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Date :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -136,6 +138,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(275, 27);
             this.dateTimePicker1.TabIndex = 11;
+            this.dateTimePicker1.Visible = false;
             // 
             // Setting
             // 

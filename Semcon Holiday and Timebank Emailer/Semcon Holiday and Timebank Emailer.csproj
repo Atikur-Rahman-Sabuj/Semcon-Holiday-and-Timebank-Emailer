@@ -68,6 +68,9 @@
     <Compile Include="DataAccess\SettingDataAccess.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="PlaceholderTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="Views\Emailer.cs">
       <SubType>Form</SubType>

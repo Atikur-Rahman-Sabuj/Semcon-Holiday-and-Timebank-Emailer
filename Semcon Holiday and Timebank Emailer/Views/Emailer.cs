@@ -20,6 +20,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
     {
         String FilePath;
         String EmailSubject;
+        String LastDate;
         List<Employee> Employees;
         List<Email> Emails;
         Boolean HolidayMood;
@@ -37,20 +38,37 @@ namespace Semcon_Holiday_and_Timebank_Emailer
                 openFileDialog1.ShowDialog();
                 FilePath = openFileDialog1.FileName;
                 EmailSubject = openFileDialog1.SafeFileName.Substring(0, openFileDialog1.SafeFileName.Length - 4);
-                Employees = new EmployeeDataAccess().BindFileDataToModel(FilePath);
-                Emails = new EmailDataAccess().GenerateEmails(Employees, EmailSubject, "jill.thurston@semcon.com", HolidayMood);
+                LastDate = EmailSubject.Split(' ')[0];
+                if (HolidayMood)
+                {
+                    Employees = new EmployeeDataAccess().BindFileDataToModelForHoliday(FilePath);
+                    dgvEmployees.Columns[5].HeaderText = "Holiday Taken YTD";
+                    dgvEmployees.Columns[5].DataPropertyName = "HolidayTakenYTD";
+                    dgvEmployees.Columns[6].Visible = true;
+                }
+                else
+                {
+                    Employees = new EmployeeDataAccess().BindFileDataToModelForTimebank(FilePath);
+                    dgvEmployees.Columns[5].HeaderText = "Total Timebank";
+                    dgvEmployees.Columns[5].DataPropertyName = "TotalTimebank";
+                    dgvEmployees.Columns[6].Visible = false;
+
+                }
+                    
+                Emails = new EmailDataAccess().GenerateEmails(Employees, EmailSubject, "jill.thurston@semcon.com", HolidayMood, LastDate);
                 Utilities.BindListToGridView(Employees, dgvEmployees);
                 for (int i = 0; i < Employees.Count; i++)
                 {
                     dgvEmployees.Rows[i].Cells[0].Value = i+1;
                 }
                 ShowHideControls(true);
+                lblFileName.Text = EmailSubject + ".csv";
                 tbxEmail.Text = "";
                 tbxSubject.Text = "";
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 dgvEmployees.Visible = false;
                 btnSendEmails.Visible = false;
             }
@@ -75,20 +93,20 @@ namespace Semcon_Holiday_and_Timebank_Emailer
             {
                 HolidayMood = false;
             }
-            
+            ShowHideControls(false);
             btnSelectCsv.Visible = true;
         }
 
         private void btnSendEmails_Click(object sender, EventArgs e)
         {
             //List<Email> emails = new EmailDataAccess().GenerateEmails(Employees, EmailSubject, "jill.thurston@semcon.com", HolidayMood);
-            if(new EmailDataAccess().SendEmails(Emails))
+            if(new EmailDataAccess().SendEmails(Employees, Emails, dgvEmployees, tbxBeforeBody.Text))
             {
-                MessageBox.Show("Email send successfully.");
+                //MessageBox.Show("Email send successfully.");
             }
             else
             {
-                MessageBox.Show("Could not send email.");
+                //MessageBox.Show("Could not send email.");
             }
         
         }
@@ -109,6 +127,8 @@ namespace Semcon_Holiday_and_Timebank_Emailer
             tbxEmail.Visible = showHide;
             tbxSubject.Visible = showHide;
             label1.Visible = showHide;
+            tbxBeforeBody.Visible = showHide;
+            lblFileName.Visible = showHide;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -121,9 +141,9 @@ namespace Semcon_Holiday_and_Timebank_Emailer
         {
             Emails[EmailIndex].Body = tbxEmail.Text;
             Emails[EmailIndex].Subject = tbxSubject.Text;
-            MessageBox.Show("Saved Successfully");
+            lblSave.Text = "Saved";
         }
-
+        
         private void dgvEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -147,6 +167,11 @@ namespace Semcon_Holiday_and_Timebank_Emailer
                              MessageBoxIcon.Question);
 
             e.Cancel = (result == DialogResult.No);
+        }
+
+        private void btnSave_Leave(object sender, EventArgs e)
+        {
+            lblSave.Text = "";
         }
     }
 }

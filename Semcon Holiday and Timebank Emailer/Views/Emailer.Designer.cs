@@ -41,6 +41,7 @@
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHolidayTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemainingHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSendEmails = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -48,6 +49,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.tbxSubject = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Label();
+            this.tbxBeforeBody = new Semcon_Holiday_and_Timebank_Emailer.PlaceholderTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +64,7 @@
             "Holiday Email",
             "Timebank Email"});
             this.comboBox1.Location = new System.Drawing.Point(15, 8);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(139, 23);
             this.comboBox1.TabIndex = 0;
@@ -71,7 +75,7 @@
             this.btnSelectCsv.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSelectCsv.Font = new System.Drawing.Font("Roboto", 10F);
             this.btnSelectCsv.Location = new System.Drawing.Point(180, 6);
-            this.btnSelectCsv.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSelectCsv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSelectCsv.Name = "btnSelectCsv";
             this.btnSelectCsv.Size = new System.Drawing.Size(107, 24);
             this.btnSelectCsv.TabIndex = 1;
@@ -101,7 +105,8 @@
             this.colsurName,
             this.colEmail,
             this.colHolidayTaken,
-            this.colRemainingHours});
+            this.colRemainingHours,
+            this.Result});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,8 +116,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmployees.GridColor = System.Drawing.Color.White;
-            this.dgvEmployees.Location = new System.Drawing.Point(7, 46);
-            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEmployees.Location = new System.Drawing.Point(7, 76);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEmployees.MultiSelect = false;
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
@@ -120,7 +125,7 @@
             this.dgvEmployees.RowTemplate.Height = 28;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.ShowEditingIcon = false;
-            this.dgvEmployees.Size = new System.Drawing.Size(964, 327);
+            this.dgvEmployees.Size = new System.Drawing.Size(964, 313);
             this.dgvEmployees.TabIndex = 2;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
             // 
@@ -129,7 +134,7 @@
             this.colSerialNo.HeaderText = "Sl. No.";
             this.colSerialNo.Name = "colSerialNo";
             this.colSerialNo.ReadOnly = true;
-            this.colSerialNo.Width = 80;
+            this.colSerialNo.Width = 70;
             // 
             // colName
             // 
@@ -145,7 +150,6 @@
             this.colFirstName.HeaderText = "First Name";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.ReadOnly = true;
-            this.colFirstName.Width = 120;
             // 
             // colsurName
             // 
@@ -153,7 +157,6 @@
             this.colsurName.HeaderText = "Sur Name";
             this.colsurName.Name = "colsurName";
             this.colsurName.ReadOnly = true;
-            this.colsurName.Width = 120;
             // 
             // colEmail
             // 
@@ -161,7 +164,7 @@
             this.colEmail.HeaderText = "Email Address";
             this.colEmail.Name = "colEmail";
             this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 160;
+            this.colEmail.Width = 150;
             // 
             // colHolidayTaken
             // 
@@ -169,7 +172,7 @@
             this.colHolidayTaken.HeaderText = "Holiday Taken YTD";
             this.colHolidayTaken.Name = "colHolidayTaken";
             this.colHolidayTaken.ReadOnly = true;
-            this.colHolidayTaken.Width = 160;
+            this.colHolidayTaken.Width = 140;
             // 
             // colRemainingHours
             // 
@@ -177,14 +180,20 @@
             this.colRemainingHours.HeaderText = "Remaining Hours";
             this.colRemainingHours.Name = "colRemainingHours";
             this.colRemainingHours.ReadOnly = true;
-            this.colRemainingHours.Width = 160;
+            this.colRemainingHours.Width = 140;
+            // 
+            // Result
+            // 
+            this.Result.HeaderText = "Result";
+            this.Result.Name = "Result";
+            this.Result.ReadOnly = true;
             // 
             // btnSendEmails
             // 
             this.btnSendEmails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSendEmails.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendEmails.Location = new System.Drawing.Point(847, 512);
-            this.btnSendEmails.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSendEmails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSendEmails.Name = "btnSendEmails";
             this.btnSendEmails.Size = new System.Drawing.Size(124, 33);
             this.btnSendEmails.TabIndex = 4;
@@ -212,11 +221,11 @@
             // tbxEmail
             // 
             this.tbxEmail.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(7, 379);
+            this.tbxEmail.Location = new System.Drawing.Point(7, 393);
             this.tbxEmail.Multiline = true;
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbxEmail.Size = new System.Drawing.Size(964, 127);
+            this.tbxEmail.Size = new System.Drawing.Size(964, 114);
             this.tbxEmail.TabIndex = 6;
             // 
             // btnSave
@@ -224,20 +233,21 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(689, 512);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(124, 33);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Leave += new System.EventHandler(this.btnSave_Leave);
             // 
             // tbxSubject
             // 
             this.tbxSubject.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSubject.Location = new System.Drawing.Point(81, 519);
             this.tbxSubject.Name = "tbxSubject";
-            this.tbxSubject.Size = new System.Drawing.Size(573, 23);
+            this.tbxSubject.Size = new System.Drawing.Size(513, 23);
             this.tbxSubject.TabIndex = 8;
             // 
             // label1
@@ -250,12 +260,46 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Subject :";
             // 
+            // lblFileName
+            // 
+            this.lblFileName.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.Location = new System.Drawing.Point(292, 11);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(414, 15);
+            this.lblFileName.TabIndex = 12;
+            this.lblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSave.Location = new System.Drawing.Point(614, 523);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(0, 15);
+            this.lblSave.TabIndex = 13;
+            // 
+            // tbxBeforeBody
+            // 
+            this.tbxBeforeBody.Font = new System.Drawing.Font("Roboto", 9.75F);
+            this.tbxBeforeBody.ForeColor = System.Drawing.Color.Gray;
+            this.tbxBeforeBody.Location = new System.Drawing.Point(7, 47);
+            this.tbxBeforeBody.Name = "tbxBeforeBody";
+            this.tbxBeforeBody.PlaceHolderText = "Add additional message to add to the email. This will appear before the main body" +
+    " text.";
+            this.tbxBeforeBody.Size = new System.Drawing.Size(964, 23);
+            this.tbxBeforeBody.TabIndex = 11;
+            this.tbxBeforeBody.Text = "Add additional message to add to the email. This will appear before the main body" +
+    " text.";
+            // 
             // Emailer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(977, 551);
+            this.ClientSize = new System.Drawing.Size(930, 581);
+            this.Controls.Add(this.lblSave);
+            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.tbxBeforeBody);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxSubject);
             this.Controls.Add(this.btnSave);
@@ -267,7 +311,7 @@
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Emailer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Holiday & Timebank Emailer";
@@ -286,6 +330,11 @@
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button btnSendEmails;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.TextBox tbxEmail;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox tbxSubject;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSerialNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
@@ -293,11 +342,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHolidayTaken;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemainingHours;
-        private System.Windows.Forms.Button btnSetting;
-        private System.Windows.Forms.TextBox tbxEmail;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox tbxSubject;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Result;
+        private PlaceholderTextBox tbxBeforeBody;
+        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.Label lblSave;
     }
 }
 
