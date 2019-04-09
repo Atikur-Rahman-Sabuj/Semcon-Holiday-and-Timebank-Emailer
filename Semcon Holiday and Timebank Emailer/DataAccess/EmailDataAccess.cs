@@ -36,7 +36,6 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
             SettingDataAccess setting = new SettingDataAccess();
             SmtpClient client = new SmtpClient();
             client.UseDefaultCredentials = true;
-            //client.Credentials = new System.Net.NetworkCredential("adm-sx27186", "Laxmi2121");
             client.Port = 25;
             client.Host = "smtp.semcon.se";
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
