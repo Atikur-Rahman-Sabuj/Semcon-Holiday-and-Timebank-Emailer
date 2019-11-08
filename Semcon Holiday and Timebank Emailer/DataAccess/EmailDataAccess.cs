@@ -12,7 +12,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
 {
     public class EmailDataAccess
     {
-        public List<Email> GenerateEmails(List<Employee> employees, String subject, String from,Boolean isHolidayMood, String Date)
+        public List<Email> GenerateEmails(List<Employee> employees, String subject, String from,int type, String Date)
         {
             List<Email> emails = new List<Email>();
             foreach (Employee employee in employees)
@@ -23,7 +23,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
                     To = employee.Email,
                     ToName = employee.Name,
                     Subject = subject+" "+employee.FirstName+" "+employee.SurName,
-                    Body = GenerateBody(employee, isHolidayMood, Date)
+                    Body = GenerateBody(employee, type, Date)
                 };
                 emails.Add(email);
             }
@@ -66,24 +66,25 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
             return sent;
         }
 
-        public String GenerateBody(Employee employee, Boolean isHolidayMood, String Date)
+        public String GenerateBody(Employee employee, int type, String Date)
         {
             String Body = "";
             //Body = Body + "Test of editing body" + Environment.NewLine;
             //Body = Body + "Dear " + employee.FirstName+Environment.NewLine;
-            if (isHolidayMood)
+            if (type==0)
             {
                 Body = Body + "Our Maconomy records show that you have taken "+employee.HolidayTakenYTD+" hours holiday at the end of "+ Date +" from your current year entitlement."+Environment.NewLine+Environment.NewLine;
-                Body = Body + "Your remaining balance for the current holiday year is "+employee.RemainingHours+" hours. This balance is not adjusted for the Christmas shutdown so please reserve 3 days to cover Tues 24th (Fri 27th) December through to Tue 31st December 2019 (nb: these dates are subject to change to meet customer requirements)."+Environment.NewLine+Environment.NewLine;
+                Body = Body + "Your remaining balance for the current holiday year is "+employee.RemainingHours+" hours. After allowing for the Christmas shutdown (Fri 27th December through to Tue 31st December) your balance is "+employee.RemainingAfterChrismasHours+" hours."+Environment.NewLine+Environment.NewLine;
+                Body = Body + "If the balance of hours in the last column is negetive(i.e. in brackets) then you have overtaken your holiday entitlement and need to make arrangements to rectify this with your manager before the year end." + Environment.NewLine + Environment.NewLine;
 
             }
-            else
+            else if(type==1)
             {
                 Body = Body + "Our Maconomy records show that you had a balance of "+employee.TotalTimebank+" hours in Timebank at the end of "+ Date +"." + Environment.NewLine+Environment.NewLine;
                 Body = Body + "Please note, if the figure is shown as negative (either in brackets or with a minus sign), this means your Timebank balance is negative and you should rectify the position ASAP."+Environment.NewLine+Environment.NewLine;
             }
             Body = Body + "This email is for your records only, however please feel free to contact me if you have a query with this figure."+Environment.NewLine+Environment.NewLine;
-            Body = Body + "Many thanks "+Environment.NewLine+new SettingDataAccess().GetName()+" "+Environment.NewLine+ new SettingDataAccess().GetDesignation();
+            Body = Body + "Many thanks"+Environment.NewLine+"Finance Team";
             return Body;
         }
         public String AddTexttoBody(String Name, String Body, String Text)

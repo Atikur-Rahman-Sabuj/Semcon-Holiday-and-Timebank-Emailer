@@ -23,7 +23,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
         String LastDate;
         List<Employee> Employees;
         List<Email> Emails;
-        Boolean HolidayMood;
+        int Type; // 0: holiday   1:Timebank 
         int EmailIndex;
         public Emailer()
         {
@@ -39,23 +39,25 @@ namespace Semcon_Holiday_and_Timebank_Emailer
                 FilePath = openFileDialog1.FileName;
                 EmailSubject = openFileDialog1.SafeFileName.Substring(0, openFileDialog1.SafeFileName.Length - 4);
                 LastDate = EmailSubject.Split(' ')[0];
-                if (HolidayMood)
+                if (Type==0)
                 {
-                    Employees = new EmployeeDataAccess().BindFileDataToModelForHoliday(FilePath);
+                    Employees = new EmployeeDataAccess().BindFileDataToModelForHolidayWithChirstmas(FilePath);
                     dgvEmployees.Columns[5].HeaderText = "Holiday Taken YTD";
                     dgvEmployees.Columns[5].DataPropertyName = "HolidayTakenYTD";
                     dgvEmployees.Columns[6].Visible = true;
+                    dgvEmployees.Columns[7].Visible = true;
                 }
-                else
+                else if(Type==1)
                 {
                     Employees = new EmployeeDataAccess().BindFileDataToModelForTimebank(FilePath);
                     dgvEmployees.Columns[5].HeaderText = "Total Timebank";
                     dgvEmployees.Columns[5].DataPropertyName = "TotalTimebank";
                     dgvEmployees.Columns[6].Visible = false;
+                    dgvEmployees.Columns[7].Visible = false;
 
                 }
                     
-                Emails = new EmailDataAccess().GenerateEmails(Employees, EmailSubject, "jill.thurston@semcon.com", HolidayMood, LastDate);
+                Emails = new EmailDataAccess().GenerateEmails(Employees, EmailSubject, "jill.thurston@semcon.com", Type, LastDate);
                 Utilities.BindListToGridView(Employees, dgvEmployees);
                 for (int i = 0; i < Employees.Count; i++)
                 {
@@ -80,7 +82,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
         {
             if (comboBox1.SelectedIndex.Equals(0))
             {
-                HolidayMood = true;
+                Type = 0;
                 //setting part
                 //Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
                 //config.AppSettings.Settings.Remove("SenderEmail");
@@ -91,7 +93,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
             }
             else
             {
-                HolidayMood = false;
+                Type = 1;
             }
             ShowHideControls(false);
             btnSelectCsv.Visible = true;

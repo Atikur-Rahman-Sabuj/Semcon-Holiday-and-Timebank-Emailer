@@ -50,20 +50,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(91, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(314, 23);
+            this.label3.Size = new System.Drawing.Size(308, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Semcon Product Information UK Ltd";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(195, 137);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 18);
+            this.label4.Size = new System.Drawing.Size(90, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Dipak Mistry";
             // 
@@ -75,7 +75,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 4;
-            this.label5.Text = " v3.1";
+            this.label5.Text = " v3.2";
             // 
             // label1
             // 

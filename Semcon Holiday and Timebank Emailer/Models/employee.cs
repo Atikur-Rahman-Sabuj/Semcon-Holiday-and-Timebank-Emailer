@@ -15,5 +15,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer.Models
         public String HolidayTakenYTD { get; set; }
         public String RemainingHours { get; set; }
         public String TotalTimebank { get; set; }
+        public String ChristmasHours { get; set; }
+        public String RemainingAfterChrismasHours { get; set; }
     }
 }
