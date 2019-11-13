@@ -117,7 +117,7 @@ namespace Semcon_Holiday_and_Timebank_Emailer
         {
             dgvEmployees.AutoGenerateColumns = false;
             this.Height = 590;
-            this.Width = 993;
+            this.Width = 1140;
             ShowHideControls(false);
         }
         private void ShowHideControls(Boolean showHide)

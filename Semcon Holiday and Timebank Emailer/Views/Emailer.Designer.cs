@@ -34,6 +34,15 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSelectCsv = new System.Windows.Forms.Button();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.colSerialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colsurName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHolidayTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemainingHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChristmasHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSendEmails = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -44,15 +53,6 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.lblSave = new System.Windows.Forms.Label();
             this.tbxBeforeBody = new Semcon_Holiday_and_Timebank_Emailer.PlaceholderTextBox();
-            this.colSerialNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colsurName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHolidayTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemainingHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChristmasHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,112 +127,9 @@
             this.dgvEmployees.RowTemplate.Height = 28;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.ShowEditingIcon = false;
-            this.dgvEmployees.Size = new System.Drawing.Size(964, 313);
+            this.dgvEmployees.Size = new System.Drawing.Size(1105, 313);
             this.dgvEmployees.TabIndex = 2;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellClick);
-            // 
-            // btnSendEmails
-            // 
-            this.btnSendEmails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSendEmails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendEmails.Location = new System.Drawing.Point(847, 512);
-            this.btnSendEmails.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSendEmails.Name = "btnSendEmails";
-            this.btnSendEmails.Size = new System.Drawing.Size(124, 33);
-            this.btnSendEmails.TabIndex = 4;
-            this.btnSendEmails.Text = "Send Emails";
-            this.btnSendEmails.UseVisualStyleBackColor = true;
-            this.btnSendEmails.Click += new System.EventHandler(this.btnSendEmails_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "CSV files|*.csv";
-            this.openFileDialog1.Title = "Select csv file";
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.Location = new System.Drawing.Point(863, 8);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(107, 33);
-            this.btnSetting.TabIndex = 5;
-            this.btnSetting.Text = "Setting";
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // tbxEmail
-            // 
-            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(7, 393);
-            this.tbxEmail.Multiline = true;
-            this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbxEmail.Size = new System.Drawing.Size(964, 114);
-            this.tbxEmail.TabIndex = 6;
-            // 
-            // btnSave
-            // 
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(689, 512);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(124, 33);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.Leave += new System.EventHandler(this.btnSave_Leave);
-            // 
-            // tbxSubject
-            // 
-            this.tbxSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSubject.Location = new System.Drawing.Point(81, 519);
-            this.tbxSubject.Name = "tbxSubject";
-            this.tbxSubject.Size = new System.Drawing.Size(513, 22);
-            this.tbxSubject.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 522);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Subject :";
-            // 
-            // lblFileName
-            // 
-            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileName.Location = new System.Drawing.Point(292, 11);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(414, 15);
-            this.lblFileName.TabIndex = 12;
-            this.lblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblSave
-            // 
-            this.lblSave.AutoSize = true;
-            this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSave.Location = new System.Drawing.Point(614, 523);
-            this.lblSave.Name = "lblSave";
-            this.lblSave.Size = new System.Drawing.Size(0, 16);
-            this.lblSave.TabIndex = 13;
-            // 
-            // tbxBeforeBody
-            // 
-            this.tbxBeforeBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tbxBeforeBody.ForeColor = System.Drawing.Color.Gray;
-            this.tbxBeforeBody.Location = new System.Drawing.Point(7, 47);
-            this.tbxBeforeBody.Name = "tbxBeforeBody";
-            this.tbxBeforeBody.PlaceHolderText = "Add additional message to add to the email. This will appear before the main body" +
-    " text.";
-            this.tbxBeforeBody.Size = new System.Drawing.Size(964, 22);
-            this.tbxBeforeBody.TabIndex = 11;
-            this.tbxBeforeBody.Text = "Add additional message to add to the email. This will appear before the main body" +
-    " text.";
             // 
             // colSerialNo
             // 
@@ -300,12 +197,115 @@
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
             // 
+            // btnSendEmails
+            // 
+            this.btnSendEmails.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSendEmails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendEmails.Location = new System.Drawing.Point(987, 512);
+            this.btnSendEmails.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSendEmails.Name = "btnSendEmails";
+            this.btnSendEmails.Size = new System.Drawing.Size(124, 33);
+            this.btnSendEmails.TabIndex = 4;
+            this.btnSendEmails.Text = "Send Emails";
+            this.btnSendEmails.UseVisualStyleBackColor = true;
+            this.btnSendEmails.Click += new System.EventHandler(this.btnSendEmails_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "CSV files|*.csv";
+            this.openFileDialog1.Title = "Select csv file";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Location = new System.Drawing.Point(1001, 8);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(107, 33);
+            this.btnSetting.TabIndex = 5;
+            this.btnSetting.Text = "Setting";
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // tbxEmail
+            // 
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(7, 393);
+            this.tbxEmail.Multiline = true;
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbxEmail.Size = new System.Drawing.Size(1105, 114);
+            this.tbxEmail.TabIndex = 6;
+            // 
+            // btnSave
+            // 
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(829, 512);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(124, 33);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Leave += new System.EventHandler(this.btnSave_Leave);
+            // 
+            // tbxSubject
+            // 
+            this.tbxSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSubject.Location = new System.Drawing.Point(81, 519);
+            this.tbxSubject.Name = "tbxSubject";
+            this.tbxSubject.Size = new System.Drawing.Size(650, 22);
+            this.tbxSubject.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 522);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Subject :";
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.Location = new System.Drawing.Point(292, 11);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(414, 15);
+            this.lblFileName.TabIndex = 12;
+            this.lblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSave.Location = new System.Drawing.Point(614, 523);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(0, 16);
+            this.lblSave.TabIndex = 13;
+            // 
+            // tbxBeforeBody
+            // 
+            this.tbxBeforeBody.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tbxBeforeBody.ForeColor = System.Drawing.Color.Gray;
+            this.tbxBeforeBody.Location = new System.Drawing.Point(7, 47);
+            this.tbxBeforeBody.Name = "tbxBeforeBody";
+            this.tbxBeforeBody.PlaceHolderText = "Add additional message to add to the email. This will appear before the main body" +
+    " text.";
+            this.tbxBeforeBody.Size = new System.Drawing.Size(1104, 22);
+            this.tbxBeforeBody.TabIndex = 11;
+            this.tbxBeforeBody.Text = "Add additional message to add to the email. This will appear before the main body" +
+    " text.";
+            // 
             // Emailer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(998, 581);
+            this.ClientSize = new System.Drawing.Size(1123, 581);
             this.Controls.Add(this.lblSave);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.tbxBeforeBody);
