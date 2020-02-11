@@ -74,9 +74,9 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
             if (type==0)
             {
                 Body = Body + "Our Maconomy records show that you have taken "+employee.HolidayTakenYTD+" hours holiday at the end of "+ Date +" from your current year entitlement."+Environment.NewLine+Environment.NewLine;
-                Body = Body + "Your remaining balance for the current holiday year is "+employee.RemainingHours+" hours. After allowing for the Christmas shutdown (Fri 27th December through to Tue 31st December) your balance is "+employee.RemainingAfterChrismasHours+" hours."+Environment.NewLine+Environment.NewLine;
-                Body = Body + "If the balance of hours in the last column is negative(i.e. in brackets) then you have overtaken your holiday entitlement and need to make arrangements to rectify this with your manager before the year end." + Environment.NewLine + Environment.NewLine;
-
+                Body = Body + "Your remaining balance for the current holiday year is "+employee.RemainingHours+" hours. After allowing for the Christmas shutdown your balance is "+employee.RemainingAfterChrismasHours+" hours."+Environment.NewLine+Environment.NewLine;
+                Body = Body + employee.ExtraTextField1 +Environment.NewLine+Environment.NewLine;
+                Body = Body + employee.ExtraTextField2 + Environment.NewLine + Environment.NewLine;
             }
             else if(type==1)
             {

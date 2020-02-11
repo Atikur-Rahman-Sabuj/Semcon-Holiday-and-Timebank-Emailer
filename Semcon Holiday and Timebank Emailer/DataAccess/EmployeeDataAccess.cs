@@ -56,7 +56,9 @@ namespace Semcon_Holiday_and_Timebank_Emailer.DataAccess
                         HolidayTakenYTD = dataRow[index++],
                         RemainingHours = dataRow[index++],
                         ChristmasHours = dataRow[index++],
-                        RemainingAfterChrismasHours = dataRow[index++]
+                        RemainingAfterChrismasHours = dataRow[index++],
+                        ExtraTextField1 = dataRow[index++],
+                        ExtraTextField2 = dataRow[index++],
                     };
                     if (employee.Email != "")
                         employees.Add(employee);
